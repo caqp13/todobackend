@@ -22,7 +22,7 @@ builder:
 
 
 agent:
-  image: guto/ansible
+  image: caqp13/todobackend-ansible 
   links:
     - db
   environment:

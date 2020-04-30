@@ -8,12 +8,20 @@ db:
     MYSQL_DATABASE: todobackend
     MYSQL_PASSWORD: password
 
-agent:
-  image: guto/ansible
+agent_1:
+  image: caqp13/todobackend-ansible 
   links:
-    - db
+    - nginx 
   environment:
-    PROBE_HOST: db
+    PROBE_HOST: nginx 
+    PROBE_PORT: "8000"
+
+agent:
+  image: caqp13/todobackend-ansible
+  links:
+    - db 
+  environment:
+    PROBE_HOST: db 
     PROBE_PORT: "3306"
 
 app:
@@ -22,7 +30,6 @@ app:
   links:
     - db
   volumes_from:
-    - target
     - webroot 
   environment:
     DJANGO_SETTINGS_MODULE: todobackend.settings.release
@@ -39,7 +46,7 @@ app:
     - "--die-on-term"
 
 test:
-  image: guto/todobackend-specs
+  image: caqp13/todobackend-specs
   links:
     - nginx
   environment:
@@ -51,7 +58,7 @@ nginx:
   links:
     - app
   ports:
-    - "8000:8000"   
+    - "8001:8000"   
   volumes_from:
     - webroot
 

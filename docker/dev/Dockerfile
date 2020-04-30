@@ -1,4 +1,4 @@
-FROM guto/todobackend-base
+FROM caqp13/todobackend-base
 MAINTAINER GUTO
 RUN apt-get update && \
     apt-get install -qy python-dev libmysqlclient-dev
