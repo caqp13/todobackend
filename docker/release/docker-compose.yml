@@ -53,7 +53,7 @@ test:
     URL: http://nginx:8000/todos
 
 nginx:
-  build: ../../../
+  build: ../../
   dockerfile: docker-nginx/Dockerfile
   links:
     - app
