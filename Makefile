@@ -5,7 +5,7 @@ REPO_NAME ?= todobackend
 
 # Filenames
 DEV_COMPOSE_FILE := docker/dev/docker-compose.yml
-REL_COMPOSE_FILE := docker/release/docker-compose.yml
+REL_COMPOSE_FILE := docker/release/docker-compose-v2.yml
 
 # Docker Compose Project Names
 REL_PROJECT := $(PROJECT_NAME)$(BUILD_ID)
